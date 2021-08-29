@@ -5,28 +5,55 @@ import {
   View,
   Image,
   TouchableOpacity,
+
 } from 'react-native';
 
+import Carousel from 'react-native-snap-carousel';
 import {Card} from 'react-native-shadow-cards';
 
 export default class App extends React.Component {
 
-
  
+    constructor(props){
+        super(props);
+        this.state = {
+          activeIndex:0,
+          carouselItems: [
+            {
+              src: 'https://lh3.googleusercontent.com/vx6PylwqbgFrKKWoSpUOBqDE241feI84PMQyvyH7VywbU3JRrQoPPQrFLPWgUgqEb-GleA=s95',
+              name: 'Evalunna ROCHE',
+              formation1: 'Université de nantes',
+              Formation: 'Formation',
+              Description: 'Description',
+              desc1: 'Calme et patiente',
+              desc2: "m'adapter à l'élève et comprendre",
+              desc3: "sa méthode d'apprentissage afin",
+              desc4: "de l'aider à progresser au mieux.",
+              btn1: "Prendre un cours avec ce Teach'r",
+              btn2: "Retirer ce Teach'r de mes favoris",
+              k: '1',
+            },
+            {
+              src: 'https://lh3.googleusercontent.com/tJoFB3vxlrT9cpC3EvNICDoXYDfvMkzl3aLYvwst9d8GxAwQ0-IiGIJY6aC5y-lQ3rL5lQ=s151',
+              name: 'Vanessa MORIN',
+              formation1: 'IPSSI de marne la valée',
+              Formation: 'Formation',
+              Description: 'Description',
+              desc1: 'Calme et patiente',
+              desc2: "m'adapter à l'élève et comprendre",
+              desc3: "sa méthode d'apprentissage afin",
+              desc4: "de l'aider à progresser au mieux.",
+              btn1: "Prendre un cours avec ce Teach'r",
+              btn2: "Retirer ce Teach'r de mes favoris",
+              k: '2',
+            }
+        ]
+      }
+    }
 
-    render() {
+    _renderItem({item,index}){
         return (
-          <>
-          <View style={styles.containerStyling}>
-          <View style={styles.ArrowContainer}>
-            <Text style={styles.Arrow}>&#60;</Text>
-          </View>
-          <View style={styles.textcontainer}>
-            <Text style={styles.text}>Teach'rs favoris</Text>
-          </View>
-        </View>
-
-            <Card  style={{
+          <Card  style={{
               borderRadius: 5,
               height: 460,
               width: 270,
@@ -39,7 +66,7 @@ export default class App extends React.Component {
                     marginLeft: 110,
                     marginTop: 45,
                   }}>
-                  Zoé Renault
+                  {item.name}
                 </Text>
 
                 <Image
@@ -50,18 +77,18 @@ export default class App extends React.Component {
                     marginTop: 30,
                     marginLeft: 30,
                   }}
-                  source={{uri: "https://lh3.googleusercontent.com/X_zWM4wCi1bc3tCd3cRDba_ZNv74MdsSoO_v6PFKysShc3CDu6jSChVmgEZgou-OC0q6GQ=s151"}}
+                  source={{uri: item.src}}
                   alt=""
                 />
                 <Text style={{marginLeft: 20, marginTop: 30, color: 'grey'}}>
-                  Formation
+                  {item.Formation}
                 </Text>
                 <Text
                   style={{marginLeft: 20, fontWeight: 'bold', fontSize: 15}}>
-                  Université Clermont Auvergne
+                  {item.formation1}
                 </Text>
                 <Text style={{marginLeft: 20, marginTop: 30, color: 'grey'}}>
-                  description
+                  {item.Description}
                 </Text>
                 <Text
                   style={{
@@ -70,19 +97,19 @@ export default class App extends React.Component {
                     fontWeight: 'bold',
                     fontSize: 15,
                   }}>
-                  Clame et patiente,
+                  {item.desc1}
                 </Text>
                 <Text
                   style={{marginLeft: 20, fontWeight: 'bold', fontSize: 15}}>
-                  m'adapter à l'élève et comprendre
+                  {item.desc2}
                 </Text>
                 <Text
                   style={{marginLeft: 20, fontWeight: 'bold', fontSize: 15}}>
-                  sa méthode d'apprentissage afin
+                  {item.desc3}
                 </Text>
                 <Text
                   style={{marginLeft: 20, fontWeight: 'bold', fontSize: 15}}>
-                  de l'aider à progresser au mieux.
+                  {item.desc4}
                 </Text>
                 <TouchableOpacity
                   style={{
@@ -99,7 +126,7 @@ export default class App extends React.Component {
                   onPress={() =>
                     alert("Vous avez demander un cours avec ce Teach'r")
                   }>
-                  <Text style={{color: 'white'}}>Prendre un cours avec ce Teach'r</Text>
+                  <Text style={{color: 'white'}}>{item.btn1}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={{
@@ -116,10 +143,35 @@ export default class App extends React.Component {
                     marginTop: 390,
                   }}
                   onPress={() => alert("Vous avez retirer ce Teach'r")}>
-                  <Text style={{color: '#fc9177'}}>Retirer ce Teach'r de mes favoris</Text>
+                  <Text style={{color: '#fc9177'}}>{item.btn2}</Text>
                 </TouchableOpacity>
           </Card>
-  
+
+        )
+    }
+
+    render() {
+        return (
+          <>
+          <View style={styles.containerStyling}>
+          <View style={styles.ArrowContainer}>
+            <Text style={styles.Arrow}>&#60;</Text>
+          </View>
+          <View style={styles.textcontainer}>
+            <Text style={styles.text}>Teach'rs favoris</Text>
+          </View>
+        </View>
+
+            <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', }}>
+                <Carousel
+                  layout={"default"}
+                  ref={ref => this.carousel = ref}
+                  data={this.state.carouselItems}
+                  sliderWidth={300}
+                  itemWidth={300}
+                  renderItem={this._renderItem}
+                  onSnapToItem = { index => this.setState({activeIndex:index}) } />
+            </View>
             </>
         );
     }
