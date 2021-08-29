@@ -1,5 +1,7 @@
 installez nodejs à l'aide de votre navigateur préféré
 
+-----------------------
+
 installez java jdk 15 à l'aide de votre navigateur préféré
 
 appuyer sur votre touche windows puis tapez environnement,
@@ -22,6 +24,8 @@ Copiez le chemin vers votre fichier JDK pour ma part c'est : C:\Program Files\Ja
 
 Mettez ensuite le chemin dans la valeur de votre variable JAVA_HOME puis validez
 
+-----------------------------------------
+
 installez android studio à l'aide de votre navigateur préféré
 
 Si vous n'avez pas de projet, cliquer sur "new project", puis cliquez sur " empty activity " puis appuyez sur next et cliquez ensuite sur finish
@@ -35,6 +39,8 @@ Cliquez sur "create virtual device"
 choisissez Pixel 3a puis cliquez sur next,
 
 installer ensuite "Pie" (le bouton est situté à sa gauche ou à droite cochez accepter puis next, attendez que l'installation finisse et appuyez sur finish, il n'y auras pas de bouton si vous l'avez déjà) ensuite séléctionner "pie" puis cliquez sur next puis finish
+
+-----------------------------------------
 
 appuyer sur votre touche windows puis tapez environnement,
 
@@ -56,6 +62,8 @@ Copiez le chemin vers votre fichier SDK pour ma part c'est : C:\Users\Nom d'util
 
 Mettez ensuite le chemin dans la valeur de votre variable ANDROID_HOME puis validez
 
+-----------------------------------------
+
 Appuyez sur la touche windows de votre clavier puis tapez cmd et cliquer sur "invite de commande" et entrez la commande : "npm install -g react-native-cli" puis appuyer sur la entrée de votre clavier et attendez que l'installation se termine.
 
 Retournez la ou vous aviez copier le chemin pour SDK(ANDROID_HOME) qui est dans l'étape du dessus du trait
@@ -71,6 +79,8 @@ si l'AVD à bel et bien été crée elle s'afficheras dans l'invite de commande.
 si l'avd Pixel_3a_API à été crée faite la commande dans l'invité de commande "emulator -avd Pixel_3a_API_28" (<- votre avd listé) un émulateur de téléphone s'ouvriras, ne le fermer pas et ne fermer pas non plus l'invite de commande.
 
 Si l'avd n'as pas été crée refaites l'étape de création d'avd qui est dans l'étape du dessus du trait
+
+-----------------------------------------
 
 Pour finir télécharger le projet sous zip, extrayer le ou vous le souhaitez allez ensuite dans le projet puis dans ReactTeachs, copiez le chemin du fichier puis entrez dans un nouvel invite de commande la commande "cd (puis faire clic droit paste)"(vérifiez bien qu'il y ait un espace entre cd et le chemin) puis appuyez sur la touche entrée.
 
