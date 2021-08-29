@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 import {Card} from 'react-native-shadow-cards';
@@ -11,7 +12,7 @@ import {Card} from 'react-native-shadow-cards';
 export default class App extends React.Component {
 
 
-  
+ 
 
     render() {
         return (
@@ -25,7 +26,6 @@ export default class App extends React.Component {
           </View>
         </View>
 
-            <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', }}>
             <Card  style={{
               borderRadius: 5,
               height: 460,
@@ -70,7 +70,7 @@ export default class App extends React.Component {
                     fontWeight: 'bold',
                     fontSize: 15,
                   }}>
-                 Calme et patiente
+                  Clame et patiente,
                 </Text>
                 <Text
                   style={{marginLeft: 20, fontWeight: 'bold', fontSize: 15}}>
@@ -78,15 +78,48 @@ export default class App extends React.Component {
                 </Text>
                 <Text
                   style={{marginLeft: 20, fontWeight: 'bold', fontSize: 15}}>
-                 sa méthode d'apprentissage afin
+                  sa méthode d'apprentissage afin
                 </Text>
                 <Text
                   style={{marginLeft: 20, fontWeight: 'bold', fontSize: 15}}>
                   de l'aider à progresser au mieux.
                 </Text>
-                
+                <TouchableOpacity
+                  style={{
+                    alignItems: 'center',
+                    position: 'absolute',
+                    backgroundColor: '#0074e5',
+                    padding: 4,
+                    height: 30,
+                    borderRadius: 5,
+                    width: '90%',
+                    marginLeft: '5%',
+                    marginTop: 350,
+                  }}
+                  onPress={() =>
+                    alert("Vous avez demander un cours avec ce Teach'r")
+                  }>
+                  <Text style={{color: 'white'}}>Prendre un cours avec ce Teach'r</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    alignItems: 'center',
+                    position: 'absolute',
+                    backgroundColor: 'white',
+                    borderWidth: 2,
+                    borderColor: '#fc9177',
+                    padding: 4,
+                    height: 30,
+                    borderRadius: 5,
+                    width: '90%',
+                    marginLeft: '5%',
+                    marginTop: 390,
+                  }}
+                  onPress={() => alert("Vous avez retirer ce Teach'r")}>
+                  <Text style={{color: '#fc9177'}}>Retirer ce Teach'r de mes favoris</Text>
+                </TouchableOpacity>
           </Card>
-            </View>
+  
             </>
         );
     }
